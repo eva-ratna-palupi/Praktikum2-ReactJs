@@ -7,7 +7,7 @@ class Parent extends Component {
         super(props)
 
         this.state = {
-            stock: 10
+            stock: 10 
         }
     }
 

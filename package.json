@@ -32,21 +32,5 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  },
-  "description": "This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).",
-  "main": "index.js",
-  "devDependencies": {},
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/eva-ratna-palupi/Praktikum2-ReactJs.git"
-  },
-  "keywords": [
-    "ReactJS"
-  ],
-  "author": "Eva Ratna Palupi",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/eva-ratna-palupi/Praktikum2-ReactJs/issues"
-  },
-  "homepage": "https://github.com/eva-ratna-palupi/Praktikum2-ReactJs#readme"
-}
+  }
+  }

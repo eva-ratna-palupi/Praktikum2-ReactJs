@@ -11,7 +11,7 @@ class ListComp extends PureComponent {
         this.state = {
             mahasiswa: [],
             response: '',
-            diaplay: 'none'
+            display: 'none'
 
         }
     }
@@ -23,11 +23,42 @@ class ListComp extends PureComponent {
         })
     }
 
+    Deletemahasiswa = (id_mahasiswa) => {
+        const { mahasiswa } = this.state
+        const data = qs.stringify({
+            id_mahasiswa: id_mahasiswa
+
+        })
+
+        axios.delete(api + '/hapus',
+            {
+                data: data,
+                headers: { 'Content-type': 'application/x-www-form-urlencoded' }
+            }
+        ).then(json => {
+            if (json.data.status === 200) {
+                this.setState({
+                    response: json.data.values,
+                    mahasiswa: mahasiswa.filter(mahasiswa => mahasiswa.id_mahasiswa !== id_mahasiswa),
+                    display: 'block'
+                })
+                this.props.history.push('/mahasiswa')
+            } else {
+                this.setState({
+                    response: json.data.values,
+                    display: 'block'
+                })
+            }
+        })
+    }
+
+
     render() {
         return (
             <Container>
                 <h2>Data Mahasiswa</h2>
                 <NavLink href="/mahasiswa/tambah"><Button color="primary">Tambah Data</Button></NavLink>
+                <Alert color="primary" style={{display: this.state.display}}>{this.state.response}</Alert>
                 <hr />
                 <Table className="table=bordered">
                     <thead>
@@ -59,7 +90,9 @@ class ListComp extends PureComponent {
                                             }
                                         }>
                                         <Button> Edit </Button>
-                                    </Link>
+                                        </Link>
+                                        <span> </span>
+                                        <Button onClick={() => this.Deletemahasiswa(mahasiswa.id_mahasiswa)} color="danger"> Hapus </Button>
                                 </td>
                             </tr>
                         )}

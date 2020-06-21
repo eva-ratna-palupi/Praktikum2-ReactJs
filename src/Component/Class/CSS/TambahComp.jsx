@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import axios from "axios";
-import {Container, Col, Row, Form, FormGroup, Alert, Label, Input, Button, Form} from 'reactstrap';
+import {Container, Col, Row, FormGroup, Alert, Label, Input, Button, Form} from 'reactstrap';
 import {Link} from 'react-router-dom';
 const api = 'http://localhost:3001'
 
@@ -13,7 +13,7 @@ class TambahComp extends Component {
             nama: '',
             jurusan: '',
             response: '',
-            display: ''
+            display: 'none'
         }
     }
 handleChange = (e) => {
@@ -25,16 +25,17 @@ AddMahasiswa = () => {
         nim: this.state.nim,
         nama: this.state.nama,
         jurusan: this.state.jurusan
-    }).then(JSON=>{
-        if(JSON.data.status===200){
+    }).then(json=>{
+        if(json.data.status===200){
+            console.log(json.data.value)
             this.setState({
-                response: JSON.data.value,
+                response: json.data.value,
                 display: 'block'
             })
             }
             else{
                 this.setState({
-                    response: JSON.data.value,
+                    response: json.data.value,
                     display: 'block'
                 })
             }

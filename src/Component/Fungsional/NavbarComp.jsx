@@ -19,7 +19,7 @@ const NavbarComp = (props) => {
   return (
     <div>
       <Navbar color="light" light expand="md">
-        <NavbarBrand href="/">reactstrap</NavbarBrand>
+        <NavbarBrand href="/">React Js</NavbarBrand>
         <NavbarToggler onClick={toggle} />
         <Collapse isOpen={isOpen} navbar>
           <Nav className="mr-auto" navbar>
@@ -28,6 +28,9 @@ const NavbarComp = (props) => {
             </NavItem>
             <NavItem>
               <NavLink href="/about">About</NavLink>
+            </NavItem>
+            <NavItem>
+              <NavLink href="/mahasiswa">Mahasiswa</NavLink>
             </NavItem>
           <NavbarText>Simple Text</NavbarText>
           </Nav>

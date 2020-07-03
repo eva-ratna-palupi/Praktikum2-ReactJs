@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import NavbarComp from './Component/Fungsional/NavbarComp';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import Homepage from './Component/Fungsional/Homepage';
@@ -10,17 +10,24 @@ import EditComp from './Component/Class/EditComp';
 import HooksComp from './Component/Hooks/Class/HookComp';
 import FuncHook from './Component/Hooks/Fungsi/FuncHook';
 import HooksUseEffect from './Component/Fungsional/HooksUseEffect';
+import { CartContext } from './CartContext';
+import ProductComp from './Component/Fungsional/ProductComp';
 //import logo from './logo.svg';
 //import Parent from './Component/Class/Parent';
-//import BootstrapComp from './Component/Class/BootstrapComp';
+//import BootstrapComp from './C omponent/Class/BootstrapComp';
 //import Home from './Component/Fungsional/Home';
 //import Beranda from './Component/Class/Beranda';
 //import './App.css';
 //import MyComponent2 from './Component/Class/MyComponent2';
 
 const App = () => {
+
+  const [value, setValue] = useState(0)
+
   return (
+    
     <BrowserRouter>
+    <CartContext.Provider value={{value, setValue}}>
     <NavbarComp/>
     <Switch>
       <Route exact path="/" component={Homepage}/>
@@ -31,9 +38,11 @@ const App = () => {
       <Route exact path="/class" component={HooksComp}/>
       <Route exact path="/hook" component={FuncHook}/>
       <Route exact path="/useeffect" component={HooksUseEffect}/>
+      <Route exact path="/produk" component={ProductComp}/>
       <Route exact path="/detail/:id" component={DetailComp}/>
 
       </Switch>
+      </CartContext.Provider>
     </BrowserRouter>
     
   );

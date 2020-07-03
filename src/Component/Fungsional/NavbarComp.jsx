@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import {
   Collapse,
   Navbar,
@@ -7,14 +7,18 @@ import {
   Nav,
   NavItem,
   NavLink,
-  NavbarText
+  NavbarText,
+  Button
 } from 'reactstrap';
+import { CartContext } from '../../CartContext';
 
 const NavbarComp = (props) => {
 
   const [isOpen, setIsOpen] = useState(false);
 
   const toggle = () => setIsOpen(!isOpen);
+
+  const {value, setValue} = useContext(CartContext)
 
   return (
     <div>
@@ -41,8 +45,17 @@ const NavbarComp = (props) => {
             <NavItem>
               <NavLink href="/useeffect">Hooks useEffect</NavLink>
             </NavItem>
-          <NavbarText>Simple Text</NavbarText>
+            <NavItem>
+              <NavLink href="/produk">Product</NavLink>
+            </NavItem>
+          
           </Nav>
+          <NavbarText>
+            <Button color="danger">
+              <i className="fa fa-shopping-cart"></i>
+              <span className="badge badge-light">{value}</span>
+            </Button>
+          </NavbarText>
         </Collapse>
         </Navbar>
     </div>

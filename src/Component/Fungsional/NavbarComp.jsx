@@ -38,6 +38,9 @@ const NavbarComp = (props) => {
             <NavItem>
               <NavLink href="/hook">Hooks</NavLink>
             </NavItem>
+            <NavItem>
+              <NavLink href="/useeffect">Hooks useEffect</NavLink>
+            </NavItem>
           <NavbarText>Simple Text</NavbarText>
           </Nav>
         </Collapse>
